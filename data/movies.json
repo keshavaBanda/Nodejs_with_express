@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Bahubali The Beginging",
+        "release": 2017,
+        "actors": [
+            "Prabhas",
+            "Tamanna"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Pushpa",
+        "release": 2023,
+        "actors": [
+            "Allu Arjun",
+            "Rashmika Mandanna"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Test",
+        "release": 2025,
+        "actors": [
+            "Nayna Tara",
+            "Meera"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Rohbinhood",
+        "release": 2025,
+        "actors": [
+            "Nithin",
+            "Sreelela"
+        ]
+    }
+]
