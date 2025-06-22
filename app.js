@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const morgan = require('morgan')
 
 let movies = JSON.parse(fs.readFileSync('./data/movies.json', 'utf-8'));
 app.use(express.json())
+app.use(morgan('dev'));
+
+
+
+
 
 // Router Handler Functions
 const getMovies = (req, res) => {
     res.status(200).json({
+        requestedAt: req.requestedAt,
         status: "success",
         count: movies.length,
         data: {
@@ -96,16 +103,20 @@ const deleteMovie = (req, res) => {
     })
 }
 
-app.route('/api/v1/movies')
+const movieRouter = express.Router(); //ROUTER MIDDLEWARE
+// movieRouter is returning the middleware.
+
+movieRouter.route('/')
     .get(getMovies)
     .post(createMovie)
 
-app.route('/api/v1/movies/:id')
+movieRouter.route('/:id')
     .get(getMovieById)
     .patch(updateMovie)
     .delete(deleteMovie)
 
 
+app.use('/api/v1/movies', movieRouter)
 
 const port = 3000;
 app.listen(port, () => {
